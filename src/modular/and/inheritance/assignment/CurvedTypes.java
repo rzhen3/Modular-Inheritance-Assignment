@@ -12,3 +12,13 @@ package modular.and.inheritance.assignment;
 public class CurvedTypes {
     
 }
+class Cone extends CurvedTypes{
+    
+}
+class Cylinder extends CurvedTypes{
+    
+}
+class Torus extends CurvedTypes{
+    //override getSpecifications
+    
+}

@@ -27,9 +27,8 @@ public class mainProgram{
          
        boolean continuePlaying = true;
         while(continuePlaying){
-            System.out.println(instructions);
-            String userInput = getUserShape();
-            runProgram(userInput);
+            
+            runProgram();
             
                
         }
@@ -52,20 +51,49 @@ public class mainProgram{
             selectedShape = scan.next().replaceAll(" ", "");
             for(String s: validSelections){
                 if(selectedShape.equalsIgnoreCase(s)){
-                    return selectedShape;
+                    return selectedShape.toLowerCase();
                 }
             }
             System.out.println("Invalid shape name. Try again");
         }while(true);  
     }
-    public static void runProgram(String userInput){
-        
+    public static void runProgram(){
+        System.out.println(instructions);
+        String userInput = getUserShape();
+        switch(userInput){
+            case "prism":
+                //
+                Prism uPrism = new Prism();
+                break;
+            case "pyramid":
+                //
+                Pyramid uPyramid = new Pyramid();
+                break;
+            case "cone":
+                //
+                Cone uCone = new Cone();
+                break;
+            case "cylinder":
+                //
+                Cylinder uCylinder = new Cylinder();
+                break;
+            default:
+                //
+                Torus uTorus = new Torus();
+                break;
+            
+        }
     }
     //Overload for prism-like shapes
-    public static Shape getSpecifications(String userInput){//make modular
+    public static Polyhedron getSpecifications(Polyhedron uShape){//make modular
         
     }
     //Overload for curved types
-    
+    public static Pyramid getSpecifications(Pyramid uShape){
+        
+    }
+    public static Sphere getSpecifications(Sphere uShape){
+        
+    }
 }
 
