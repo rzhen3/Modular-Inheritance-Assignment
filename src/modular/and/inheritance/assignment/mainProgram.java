@@ -13,52 +13,30 @@ import java.util.Scanner;
  */
 public class mainProgram{
     static Scanner scan = new Scanner(System.in);
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        runProgram();
-    }
-    public static void runProgram(){
-        String instructions = "\t\t\tVolume and Surface Area Calculator:\n"
+    final static String instructions = "\t\t\tVolume and Surface Area Calculator:\n"
                 + "-------------------------------------------------------------\n"
                 + "This is a volume and surface area calculator for basic shapes.\n"
                 + "You will input the shape for which you desire the volume and surface area.\n"
                 + "Next, you can input the relevant specifications of the face you want.\n"
                 + "Note for polygons with more than 4 sides, a regular polygon will be assumed\n"
                 + "Once that information has been gathered, you can choose to output the surface area or the volume\n";
-        
-        boolean continuePlaying = true;
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         
+       boolean continuePlaying = true;
         while(continuePlaying){
-            Shape userShape;
             System.out.println(instructions);
             String userInput = getUserShape();
-            switch(userInput){
-                case "prism":
-                    //
-                    break;
-                case "pyramid":
-                    //
-                    break;
-                case "sphere":
-                    //
-                    break;
-                case "cone":
-                    //
-                    break;
-                case "cylinder":
-                    //
-                    break;
-                default:
-                    //
-                    break;
-            }
+            runProgram(userInput);
             
-            System.out.println(userInput);
                
         }
+        System.out.println("Good bye!");
     }
+    
+    
     public static String getUserShape(){
         String[] validSelections = {"Prism", "Pyramid", "Sphere", "Cone", "Cylinder", "Torus"};
         System.out.println("List of possible shapes: "
@@ -68,28 +46,26 @@ public class mainProgram{
                     + "-cone\n"
                     + "-cylinder\n"
                     + "-torus\n"
-                    + "Type in your desired shape name");
+                    + "Type in your desired shape name(excluding the \"-\")");
         String selectedShape;
-//        boolean valid = false;
-//        do{
-//            selectedShape = scan.next().replaceAll(" ", "");
-//            for(String s: validSelections){
-//                if(selectedShape.equalsIgnoreCase(s)){
-//                    return selectedShape;
-//                }
-//            }
-//        }while(!valid);
-        for(;;){
+        do{
             selectedShape = scan.next().replaceAll(" ", "");
             for(String s: validSelections){
                 if(selectedShape.equalsIgnoreCase(s)){
-                    return selectedShape.toLowerCase();
+                    return selectedShape;
                 }
             }
             System.out.println("Invalid shape name. Try again");
-        }
+        }while(true);  
+    }
+    public static void runProgram(String userInput){
         
     }
+    //Overload for prism-like shapes
+    public static Shape getSpecifications(String userInput){//make modular
+        
+    }
+    //Overload for curved types
     
 }
 
