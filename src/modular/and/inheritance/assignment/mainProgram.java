@@ -24,21 +24,15 @@ public class mainProgram{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         
-       boolean continuePlaying = true;
-        while(continuePlaying){
-            
-            runProgram();
-            
-               
-        }
-        System.out.println("Good bye!");
+       runProgram();
+       System.out.println("Good bye!");
     }
-    
-    
+    private static void printLB(){
+        System.out.println("-------------------------------------------------------------------------------------------");
+    }
     public static String getUserShape(){
         String[] validSelections = {"Prism", "Pyramid", "Sphere", "Cone", "Cylinder", "Torus"};
-        System.out.println("List of possible shapes: "
+        System.out.println("List of possible shapes: \n"
                     + "-prism\n"
                     + "-pyramid\n"
                     + "-sphere\n"
@@ -49,6 +43,7 @@ public class mainProgram{
         String selectedShape;
         do{
             selectedShape = scan.next().replaceAll(" ", "");
+            printLB();
             for(String s: validSelections){
                 if(selectedShape.equalsIgnoreCase(s)){
                     return selectedShape.toLowerCase();
@@ -64,6 +59,7 @@ public class mainProgram{
             case "prism":
                 //
                 Prism uPrism = new Prism();
+                doActions(uPrism);
                 break;
             case "pyramid":
                 //
@@ -84,16 +80,25 @@ public class mainProgram{
             
         }
     }
-    //Overload for prism-like shapes
-    public static Polyhedron getSpecifications(Polyhedron uShape){//make modular
-        
-    }
-    //Overload for curved types
-    public static Pyramid getSpecifications(Pyramid uShape){
-        
-    }
-    public static Sphere getSpecifications(Sphere uShape){
-        
+    public static void doActions(Prism uPrism){
+        String userInput="";
+        do{
+            System.out.println("To get surface area, type \'surface area\'\n"
+                    + "To get volume, type \'volume\'\n"
+                    + "When finished, type \'finished\'\n"
+                    + "Enter below:");
+            userInput = scan.nextLine();
+            printLB();
+            if(userInput.equalsIgnoreCase("surface area"))
+                System.out.println(uPrism.getSurfaceArea());
+            else if(userInput.equalsIgnoreCase("volume"))
+                System.out.println(uPrism.getVolume());
+            else if(userInput.equalsIgnoreCase("finished"))
+                break;
+            else{
+                System.out.println("Command misunderstood. Try again");
+            }
+        }while(true);
     }
 }
 

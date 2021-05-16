@@ -17,31 +17,104 @@ public class Face {
     double length;
     double width;
     int sides;
+    public double[] sideList;
+    public static void printLB(){
+        System.out.println("-------------------------------------------------------------------------------------------");
+    }
     public Face(){
+        
+        sides = -1;
         length=-1;
         width=-1;
-        
+        boolean within;
+        //getting the number of sides
         do{
             try{
-                if(length<0){
-                    System.out.println("Enter a valid height:");
-                    length = scan.nextDouble();
+                System.out.println("Enter a valid number of sides for the shape's base: \n"
+                        + "Requirements: \n"
+                        + "- must be between 3 and 8\n"
+                        + "- shapes with sides greater than 4 are assumed to be regular polygons.");
+                sides = scan.nextInt();
+                printLB();
+                if(sides==3||sides==4){
+                    within = true;
+                    break;
                 }
-                if(width<0){
-                    System.out.println("Enter a valid width:");
-                    width = scan.nextDouble();
+                else if(sides<4 && sides>=8){
+                    within = false;
+                    break;
                 }
-
-                if(width<0||length<0){
-                    System.out.println("Negative input. Try again");
+                else{
+                    System.out.println("Invalid number of sides for the base. Try again");
                 }
-                
             }
             catch(InputMismatchException e){
                 System.out.println("Not a number. Try again");
             }
-        }while(true);
+        }while(true); 
+        //Getting the sides
+        sideList = new double[sides];
+        do{
+            try{
+                for(int i = 0;i<sideList.length;i++){
+                    System.out.println("Enter one side length:");
+                    double uInput = scan.nextDouble();
+                    printLB();
+                    if(uInput<=0){
+                        System.out.println("Invalid input. Try again");
+                    }
+                    else{
+                        sideList[i] = uInput;
+                    }
+                }
+            }
+            catch(InputMismatchException er){
+                System.out.println("Not a number. Try again");
+            }
+        }while(sideList[sideList.length-1]==0);
+        //Getting the length and width
+        do{
+            try{
+                if(within){
+                    if(length<0){
+                        System.out.println("Enter a valid length:");
+                        length = scan.nextDouble();
+                        printLB();
+                    }
+                    if(width<0){
+                        System.out.println("Enter a valid width:");
+                        width = scan.nextDouble();
+                        printLB();
+                    }
+
+                    if(width<0||length<0){
+                        System.out.println("Negative input. Try again");
+                    }
+                    else{
+                        break;
+                    }
+                }
+                else{
+                    if(length<0){
+                        System.out.println("Enter a valid side length:");
+                        length = scan.nextDouble();
+                        printLB();
+                    }
+                    width = 1;
+                    if(length<0){
+                        System.out.println("Negative input. Try again");
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+            catch(InputMismatchException err){
+                System.out.println("Not a number. Try again");
+            }
+        }while((length>=0 && width >=0) );
     }
+    //Getting area for quadrilaterals and triangles
     public double getArea(double uLength, double uWidth, int sides){
         switch(sides){
             case 3:
@@ -51,6 +124,7 @@ public class Face {
         }
         return -1;
     }
+    //getting area for other shapes
     public double getArea(double uLength, int sides){
         switch(sides){
             case 0:

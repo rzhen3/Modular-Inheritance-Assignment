@@ -17,6 +17,7 @@ public class Prism {
     static Scanner scan = new Scanner(System.in);
     public Face prismFace;
     public double height;
+    //Create prism and set dimensions
     public Prism(){
         prismFace = new Face();
         height = -1;
@@ -35,6 +36,7 @@ public class Prism {
             }
         }while(true);
     }
+    //Change prism dimensions
     public void changeSpec(){
         prismFace = new Face();
         height = -1;
@@ -53,9 +55,45 @@ public class Prism {
             }
         }while(true);
     }
-        
+    public double getVolume(){
+        if(prismFace.sides>=3 && prismFace.sides<=4){
+            return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*height;
+        }
+        else{
+            return prismFace.getArea(prismFace.length, prismFace.sides)*height;
+        }
+    }
+    public double getSurfaceArea(){
+        double otherFaces = 0;
+        //Calculating other faces
+        for(double i:prismFace.sideList){
+            otherFaces=otherFaces+(i*height);
+        }
+        //calculating the final surface area
+        if(prismFace.sides>=3 && prismFace.sides<=4){
+            return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*2+ otherFaces;
+        }
+        else{
+            return prismFace.getArea(prismFace.length, prismFace.sides)*2+otherFaces;
+        }
+    }
 }
 class Pyramid extends Prism{
-    
+    public double getVolume(){
+        return super.getVolume()/3;
+    }
+    public double getSurfaceArea(){
+        double otherFaces = 0;
+        //Calculating other faces
+        for(double i:prismFace.sideList){
+            otherFaces=otherFaces+(i*height/2);
+        }
+        if(prismFace.sides>=3 && prismFace.sides<=4){
+            return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)+otherFaces;
+        }
+        else{
+            return prismFace.getArea(prismFace.length, prismFace.sides)+otherFaces;
+        }
+    }
 }
     
