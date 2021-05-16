@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Roy Zheng
  */
-public class Prism {
+public class Prism{
     //It is assumed that the default/simplest polyhedron is the prism
     static Scanner scan = new Scanner(System.in);
     public Face prismFace;
@@ -27,14 +27,16 @@ public class Prism {
         do{
             try{
                 System.out.println("Enter a valid height:");
-                height=scan.nextDouble();
+                String uInput = scan.nextLine();
+                height = Double.parseDouble(uInput);
                 printLB();
                 if(height<0)
                     System.out.println("Negative value. Try again");
                 else
                     break;
             }
-            catch(InputMismatchException e){
+            catch(NumberFormatException e){
+                printLB();
                 System.out.println("Not a number. Try again.");
             }
         }while(true);

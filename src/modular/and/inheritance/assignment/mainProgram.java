@@ -66,23 +66,22 @@ public class mainProgram{
             printLB();
             switch(userInput){
                 case "prism":
-                    Prism uPrism = new Prism();
-                    doActions(uPrism);
+                    doActions(new Prism());
                     break;
                 case "pyramid":
-                    Pyramid uPyramid = new Pyramid();
+                    doActions(new Pyramid());
                     break;
                 case "sphere":
-                    Sphere uSphere = new Sphere();
+                    doActions(new Sphere());
                     break;
                 case "cone":
-                    Cone uCone = new Cone();
+                    doActions(new Cone());
                     break;
                 case "cylinder":
-                    Cylinder uCylinder = new Cylinder();
+                    doActions(new Cylinder());
                     break;
                 case "torus":
-                    Torus uTorus = new Torus();
+                    doActions(new Torus());
                     break;
                 default:
                     continuePlaying = false;
@@ -97,7 +96,8 @@ public class mainProgram{
     
     //Overload for prism
     public static void doActions(Prism uPrism){
-        String userInput="";
+        String userInput;
+        scan.nextLine();
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"
@@ -121,7 +121,8 @@ public class mainProgram{
     }
     //OVerload for pyramid
     public static void doActions(Pyramid uPyramid){
-        String userInput="";
+        String userInput;
+        scan.nextLine();
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"
@@ -145,7 +146,8 @@ public class mainProgram{
     }
     //Overload for sphere
     public static void doActions(Sphere uSphere){
-        String userInput="";
+        String userInput;
+        scan.nextLine();
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"
@@ -169,7 +171,8 @@ public class mainProgram{
     }
     //Overload for cone
     public static void doActions(Cone uCone){
-        String userInput="";
+        String userInput;
+        scan.nextLine();
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"
@@ -193,7 +196,8 @@ public class mainProgram{
     }
     //Overload for cylinder
     public static void doActions(Cylinder uCylinder){
-        String userInput="";
+        String userInput;
+        scan.nextLine();
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"
@@ -217,7 +221,8 @@ public class mainProgram{
     }
     //Overload for torus
     public static void doActions(Torus uTorus){
-        String userInput="";
+        String userInput;
+        scan.nextLine();
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"

@@ -12,7 +12,7 @@ import static modular.and.inheritance.assignment.Prism.scan;
  *
  * @author Roy Zheng
  */
-public class Sphere {
+public class Sphere{
     public double radius;
     //Line break
     public static void printLB(){
@@ -24,14 +24,16 @@ public class Sphere {
         do{
             try{
                 System.out.println("Enter a valid radius:");
-                radius=scan.nextDouble();
+                String uInput = scan.nextLine();
+                radius = Double.parseDouble(uInput);
                 printLB();
                 if(radius<0)
                     System.out.println("Negative value. Try again");
                 else
                     break;
             }
-            catch(InputMismatchException e){
+            catch(NumberFormatException e){
+                printLB();
                 System.out.println("Not a number. Try again.");
             }
         }while(true);
@@ -69,14 +71,16 @@ class Cylinder extends Sphere{
         do{
             try{
                 System.out.println("Enter a valid height:");
-                height=scan.nextDouble();
+                String uInput = scan.nextLine();
+                height = Double.parseDouble(uInput);
                 printLB();
                 if(height<0)
                     System.out.println("Negative value. Try again");
                 else
                     break;
             }
-            catch(InputMismatchException e){
+            catch(NumberFormatException e){
+                printLB();
                 System.out.println("Not a number. Try again.");
             }
         }while(true);
@@ -100,21 +104,23 @@ class Torus extends Sphere{
         do{
             try{
                 System.out.println("Enter a valid second radius:");
-                secondR=scan.nextDouble();
+                String uInput = scan.nextLine();
+                secondR = Double.parseDouble(uInput);
                 printLB();
-                if(secondR<0)
-                    System.out.println("Negative value. Try again");
+                if(secondR<0||secondR<radius)
+                    System.out.println("Improper value. Try again");
                 else
                     break;
             }
-            catch(InputMismatchException e){
+            catch(NumberFormatException e){
+                printLB();
                 System.out.println("Not a number. Try again.");
             }
         }while(true);
     }
     //Method that returns the volume of a torus
     public double getVolume(){
-        return 2*Math.PI*Math.PI*secondR*radius;
+        return 2*Math.PI*Math.PI*secondR*radius*radius;
     }
     //Method that returns the surface area of a torus
     public double getSurfaceArea(){

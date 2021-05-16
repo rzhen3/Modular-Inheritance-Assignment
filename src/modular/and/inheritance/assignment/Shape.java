@@ -10,9 +10,6 @@ package modular.and.inheritance.assignment;
  * @author Roy Zheng
  */
 public class Shape {
-    public String shapeType;
-    public Shape(String userinputShape){
-        shapeType = userinputShape;
-    }
+
         
 }
