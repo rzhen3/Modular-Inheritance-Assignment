@@ -30,6 +30,7 @@ public class Prism{
                 String uInput = scan.nextLine();
                 height = Double.parseDouble(uInput);
                 printLB();
+                //check if height is valid
                 if(height<0)
                     System.out.println("Negative value. Try again");
             }
@@ -37,16 +38,15 @@ public class Prism{
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(height<0);
+        }while(height<0);//while height is invalid
     }
     //Method returns the volume of a prism with different face types
     public double getVolume(){
-        if(prismFace.sides>=3 && prismFace.sides<=4){
+        if(prismFace.sides>=3 && prismFace.sides<=4)
             return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*height;
-        }
-        else{
+        else
             return prismFace.getArea(prismFace.length, prismFace.sides)*height;
-        }
+        
     }
     //Method returns the surface area of a prism with different face types
     public double getSurfaceArea(){
@@ -56,12 +56,12 @@ public class Prism{
             otherFaces=otherFaces+(i*height);
         }
         //calculating the final surface area
-        if(prismFace.sides>=3 && prismFace.sides<=4){
+        if(prismFace.sides>=3 && prismFace.sides<=4)
             return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*2+ otherFaces;
-        }
-        else{
+        
+        else
             return prismFace.getArea(prismFace.length, prismFace.sides)*2+otherFaces;
-        }
+        
     }
 }
 //Declare class pyramid
@@ -78,12 +78,13 @@ class Pyramid extends Prism{
         for(double i:prismFace.sideList){
             otherFaces=otherFaces+(i*height/2);
         }
-        if(prismFace.sides>=3 && prismFace.sides<=4){
+        //calculating final surface area
+        if(prismFace.sides>=3 && prismFace.sides<=4)
             return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)+otherFaces;
-        }
-        else{
+        
+        else
             return prismFace.getArea(prismFace.length, prismFace.sides)+otherFaces;
-        }
+        
     }
 }
     

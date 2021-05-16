@@ -27,7 +27,7 @@ public class Face {
         sides = -1;
         length=-1;
         width=-1;
-        boolean within;
+        boolean within = true;
         //getting the number of sides
         do{
             try{
@@ -38,51 +38,51 @@ public class Face {
                 String uInput = scan.nextLine();
                 sides = Integer.parseInt(uInput);
                 printLB();
-                if(sides==3||sides==4){
+                //determine whether shape is regular or not
+                if(sides==3||sides==4)
                     within = true;
-                    break;
-                }
-                else if(sides>4 && sides<=8){
+                else if(sides>4 && sides<=8)
                     within = false;
-                    break;
-                }
-                else{
+                else
                     System.out.println("Invalid number of sides for the base. Try again");
-                }
+                
             }
             catch(NumberFormatException e){
                 printLB();
                 System.out.println("Not a number. Try again");
             }
-        }while(true); 
+        }while(sides<3 || sides >8); //repeats as long as sides are invalid
         //Getting the sides
         sideList = new double[sides];
         if(within){
             do{
                 try{
+                    //unique side lengths
                     for(int i = 0;i<sideList.length;i++){
                         System.out.println("Enter one of the  base face's side length:");
                         String uIn = scan.nextLine();
                         double uInput = Double.parseDouble(uIn);
                         printLB();
+                        //check if negative
                         if(uInput<=0){
                             System.out.println("Invalid input. Try again");
                             i--;
                         }
-                        else{
+                        else
                             sideList[i] = uInput;
-                        }
+                        
                     }
                 }
                 catch(NumberFormatException er){
                     printLB();
                     System.out.println("Not a number. Restart and try again");
                 }
-            }while(sideList[sideList.length-1]==0);
+            }while(sideList[sideList.length-1]==0);//repeats as long as array is unfilled
         }
         //Getting the length and width
         do{
             try{
+                //shape is quad or triangle
                 if(within){
                     if(length<0){
                         System.out.println("Enter a valid length for the base:");
@@ -96,21 +96,20 @@ public class Face {
                         width = Double.parseDouble(uInput);
                         printLB();
                     }
-
-                    if(width<0||length<0){
+                    //check for invalid inputs
+                    if(width<0||length<0)
                         System.out.println("Negative input. Try again");
-                    }
+                    
                 }
+                //not quadrilateral or triangle
                 else{
                     System.out.println("Enter a valid side length:");
                     String uInput = scan.nextLine();
                     length = Double.parseDouble(uInput);
                     printLB();
-                    
-                    
-                    if(length<0){
+                    //check if side lenght is invalid
+                    if(length<0)
                         System.out.println("Negative input. Try again");
-                    }
                     else{
                         //populate array
                         for(int i = 0;i<sideList.length;i++){
@@ -124,7 +123,7 @@ public class Face {
                 printLB();
                 System.out.println("Not a number. Try again");
             }
-        }while((length<0) || (width <0));
+        }while((length<0) || (width <0));//loops as long as inputs are invalid
     }
     //Getting area for quadrilaterals and triangles
     public double getArea(double uLength, double uWidth, int sides){
@@ -139,9 +138,6 @@ public class Face {
     //getting area for other shapes
     public double getArea(double uLength, int sides){
         switch(sides){
-//            case 0:
-//                return uLength*uLength*Math.PI;
-//            
             case 5:
                 return 0.25*Math.sqrt(5*(5+2*Math.sqrt(5)))*uLength*uLength;
             case 6:

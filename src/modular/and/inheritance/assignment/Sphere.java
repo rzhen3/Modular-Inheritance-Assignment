@@ -28,16 +28,15 @@ public class Sphere{
                 String uInput = scan.nextLine();
                 radius = Double.parseDouble(uInput);
                 printLB();
+                //Check if radius is negative
                 if(radius<0)
                     System.out.println("Negative value. Try again");
-                else
-                    break;
             }
             catch(NumberFormatException e){
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(radius<0);
+        }while(radius<0);//repeats as long as radius is invalid
     }
     //Method that returns the volume of a sphere
     public double getVolume(){
@@ -66,15 +65,17 @@ class Cone extends Cylinder{
 class Cylinder extends Sphere{
     public double height;
     //Method that gets the  properties of cylinder
-    //Same thing sphere so calls the sphere constructor. Added input for height value
+    //uses radius so calls the sphere constructor. Added input for height value
     public Cylinder(){
         super();
+        height = -1;
         do{
             try{
                 System.out.println("Enter a valid height:");
                 String uInput = scan.nextLine();
                 height = Double.parseDouble(uInput);
                 printLB();
+                //check if height is negative
                 if(height<0)
                     System.out.println("Negative value. Try again");
             }
@@ -82,7 +83,7 @@ class Cylinder extends Sphere{
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(height<0);
+        }while(height<0);//repeats as long as height is invalid
     }
     //Method that returns specfically the volume for a cylinder
     public double getVolume(){
@@ -97,15 +98,17 @@ class Cylinder extends Sphere{
 class Torus extends Sphere{
     public double secondR;
     //Method that sets the torus properties
-    //Same thing as sphere but with a second radius
+    //Also uses radius but with a second radius
     public Torus(){
         super();
+        secondR = -1;
         do{
             try{
                 System.out.println("Enter a valid second radius:");
                 String uInput = scan.nextLine();
                 secondR = Double.parseDouble(uInput);
                 printLB();
+                //check for negative and smaller than radius
                 if(secondR<0||secondR<radius)
                     System.out.println("Improper value. Try again");
             }
@@ -113,7 +116,7 @@ class Torus extends Sphere{
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(secondR<0||secondR<radius);
+        }while(secondR<0||secondR<radius); //repeats as long as secondR is invalid
     }
     //Method that returns the volume of a torus
     public double getVolume(){

@@ -26,7 +26,7 @@ public class mainProgram{
      */
     public static void main(String[] args) {
        runProgram();
-       System.out.println("Good bye!");
+       System.out.println("Goodbye!");
     }
     //Line break method
     private static void printLB(){
@@ -34,7 +34,6 @@ public class mainProgram{
     }
     //Method that gets user shape (may be removed)
     public static String getUserShape(){
-//        String[] validSelections = {"Prism", "Pyramid", "Sphere", "Cone", "Cylinder", "Torus"};
         System.out.println("List of possible shapes: \n"
                     + "-prism\n"
                     + "-pyramid\n"
@@ -44,18 +43,6 @@ public class mainProgram{
                     + "-torus\n"
                 + "To quit, type in anything else.\n"
                     + "Enter your desired shape name(excluding the \"-\")");
-//        String selectedShape;
-//        do{
-//            selectedShape = scan.next().replaceAll(" ", "");
-//            printLB();
-//            for(String s: validSelections){
-//                if(selectedShape.equalsIgnoreCase(s)){
-//                    return selectedShape.toLowerCase();
-//                }
-//            }
-//            System.out.println("Invalid shape name. Try again");
-//        }while(true);  
-        
          return scan.next().replaceAll(" ","");
     }
     //Main run program method
@@ -116,9 +103,9 @@ public class mainProgram{
                 uPrism = new Prism();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
-            else{
+            else
                 System.out.println("Command misunderstood. Try again");
-            }
+            
         }while(true);
     }
     //OVerload for pyramid
@@ -141,9 +128,9 @@ public class mainProgram{
                 uPyramid = new Pyramid();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
-            else{
+            else
                 System.out.println("Command misunderstood. Try again");
-            }
+            
         }while(true);
     }
     //Overload for sphere
@@ -166,9 +153,9 @@ public class mainProgram{
                 uSphere = new Sphere();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
-            else{
+            else
                 System.out.println("Command misunderstood. Try again");
-            }
+            
         }while(true);
     }
     //Overload for cone
@@ -191,9 +178,9 @@ public class mainProgram{
                 uCone = new Cone();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
-            else{
+            else
                 System.out.println("Command misunderstood. Try again");
-            }
+            
         }while(true);
     }
     //Overload for cylinder
@@ -216,9 +203,9 @@ public class mainProgram{
                 uCylinder = new Cylinder();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
-            else{
+            else
                 System.out.println("Command misunderstood. Try again");
-            }
+            
         }while(true);
     }
     //Overload for torus
@@ -241,9 +228,9 @@ public class mainProgram{
                 uTorus = new Torus();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
-            else{
+            else
                 System.out.println("Command misunderstood. Try again");
-            }
+            
         }while(true);
     }
 }
