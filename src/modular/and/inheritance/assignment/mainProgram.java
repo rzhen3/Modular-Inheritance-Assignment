@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author Roy Zheng
  */
 public class mainProgram{
+    static boolean continuePlaying = true;
     static Scanner scan = new Scanner(System.in);
     final static String instructions = "\t\t\tVolume and Surface Area Calculator:\n"
                 + "-------------------------------------------------------------\n"
@@ -31,7 +32,7 @@ public class mainProgram{
         System.out.println("-------------------------------------------------------------------------------------------");
     }
     public static String getUserShape(){
-        String[] validSelections = {"Prism", "Pyramid", "Sphere", "Cone", "Cylinder", "Torus"};
+//        String[] validSelections = {"Prism", "Pyramid", "Sphere", "Cone", "Cylinder", "Torus"};
         System.out.println("List of possible shapes: \n"
                     + "-prism\n"
                     + "-pyramid\n"
@@ -39,52 +40,60 @@ public class mainProgram{
                     + "-cone\n"
                     + "-cylinder\n"
                     + "-torus\n"
-                    + "Type in your desired shape name(excluding the \"-\")");
-        String selectedShape;
-        do{
-            selectedShape = scan.next().replaceAll(" ", "");
-            printLB();
-            for(String s: validSelections){
-                if(selectedShape.equalsIgnoreCase(s)){
-                    return selectedShape.toLowerCase();
-                }
-            }
-            System.out.println("Invalid shape name. Try again");
-        }while(true);  
+                + "To quit, type in anything else.\n"
+                    + "Enter your desired shape name(excluding the \"-\")");
+//        String selectedShape;
+//        do{
+//            selectedShape = scan.next().replaceAll(" ", "");
+//            printLB();
+//            for(String s: validSelections){
+//                if(selectedShape.equalsIgnoreCase(s)){
+//                    return selectedShape.toLowerCase();
+//                }
+//            }
+//            System.out.println("Invalid shape name. Try again");
+//        }while(true);  
+        
+         return scan.next().replaceAll(" ","");
     }
     public static void runProgram(){
-        System.out.println(instructions);
-        String userInput = getUserShape();
-        switch(userInput){
-            case "prism":
-                //
-                Prism uPrism = new Prism();
-                doActions(uPrism);
-                break;
-            case "pyramid":
-                //
-                Pyramid uPyramid = new Pyramid();
-                break;
-            case "cone":
-                //
-                Cone uCone = new Cone();
-                break;
-            case "cylinder":
-                //
-                Cylinder uCylinder = new Cylinder();
-                break;
-            default:
-                //
-                Torus uTorus = new Torus();
-                break;
-            
-        }
+        do{
+            System.out.println(instructions);
+            String userInput = getUserShape();
+            printLB();
+            switch(userInput){
+                case "prism":
+                    Prism uPrism = new Prism();
+                    doActions(uPrism);
+                    break;
+                case "pyramid":
+                    Pyramid uPyramid = new Pyramid();
+                    break;
+                case "sphere":
+                    Sphere uSphere = new Sphere();
+                    break;
+                case "cone":
+                    Cone uCone = new Cone();
+                    break;
+                case "cylinder":
+                    Cylinder uCylinder = new Cylinder();
+                    break;
+                case "torus":
+                    Torus uTorus = new Torus();
+                    break;
+                default:
+                    continuePlaying = false;
+                    break;
+            }
+        }while(continuePlaying == true);
+        
     }
     public static void doActions(Prism uPrism){
         String userInput="";
         do{
             System.out.println("To get surface area, type \'surface area\'\n"
                     + "To get volume, type \'volume\'\n"
+                    + "To change specifications, type \'change\'\n"
                     + "When finished, type \'finished\'\n"
                     + "Enter below:");
             userInput = scan.nextLine();
@@ -93,6 +102,8 @@ public class mainProgram{
                 System.out.println("Surface Area: "+uPrism.getSurfaceArea());
             else if(userInput.equalsIgnoreCase("volume"))
                 System.out.println("Volume: "+uPrism.getVolume());
+            else if(userInput.equalsIgnoreCase("change"))
+                uPrism = new Prism();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
             else{

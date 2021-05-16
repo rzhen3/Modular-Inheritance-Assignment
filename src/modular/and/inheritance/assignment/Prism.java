@@ -17,6 +17,9 @@ public class Prism {
     static Scanner scan = new Scanner(System.in);
     public Face prismFace;
     public double height;
+    public static void printLB(){
+        System.out.println("-------------------------------------------------------------------------------------------");
+    }
     //Create prism and set dimensions
     public Prism(){
         prismFace = new Face();
@@ -25,6 +28,7 @@ public class Prism {
             try{
                 System.out.println("Enter a valid height:");
                 height=scan.nextDouble();
+                printLB();
                 if(height<0)
                     System.out.println("Negative value. Try again");
                 else
