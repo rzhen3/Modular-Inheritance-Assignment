@@ -90,9 +90,9 @@ public class mainProgram{
             userInput = scan.nextLine();
             printLB();
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println(uPrism.getSurfaceArea());
+                System.out.println("Surface Area: "+uPrism.getSurfaceArea());
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println(uPrism.getVolume());
+                System.out.println("Volume: "+uPrism.getVolume());
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
             else{

@@ -9,16 +9,16 @@ package modular.and.inheritance.assignment;
  *
  * @author Roy Zheng
  */
-public class CurvedTypes {
+public class Sphere {
+    public double radius;
+}
+class Cone extends Cylinder{
     
 }
-class Cone extends CurvedTypes{
+class Cylinder extends Sphere{
     
 }
-class Cylinder extends CurvedTypes{
-    
-}
-class Torus extends CurvedTypes{
+class Torus extends Sphere{
     //override getSpecifications
     
 }

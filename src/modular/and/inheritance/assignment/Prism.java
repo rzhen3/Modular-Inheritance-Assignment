@@ -23,32 +23,12 @@ public class Prism {
         height = -1;
         do{
             try{
-                if(height<0){
-                    System.out.println("Enter a valid height:");
-                    height=scan.nextDouble();
-                }
-                else{
+                System.out.println("Enter a valid height:");
+                height=scan.nextDouble();
+                if(height<0)
                     System.out.println("Negative value. Try again");
-                }
-            }
-            catch(InputMismatchException e){
-                System.out.println("Not a number. Try again.");
-            }
-        }while(true);
-    }
-    //Change prism dimensions
-    public void changeSpec(){
-        prismFace = new Face();
-        height = -1;
-        do{
-            try{
-                if(height<0){
-                    System.out.println("Enter a valid height:");
-                    height=scan.nextDouble();
-                }
-                else{
-                    System.out.println("Negative value. Try again");
-                }
+                else
+                    break;
             }
             catch(InputMismatchException e){
                 System.out.println("Not a number. Try again.");
