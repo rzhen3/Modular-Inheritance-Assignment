@@ -20,7 +20,7 @@ public class Prism {
     public static void printLB(){
         System.out.println("-------------------------------------------------------------------------------------------");
     }
-    //Create prism and set dimensions
+    //Constructor that set dimensions for base's values and height
     public Prism(){
         prismFace = new Face();
         height = -1;
@@ -39,6 +39,7 @@ public class Prism {
             }
         }while(true);
     }
+    //Method returns the volume of a prism with different face types
     public double getVolume(){
         if(prismFace.sides>=3 && prismFace.sides<=4){
             return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*height;
@@ -47,6 +48,7 @@ public class Prism {
             return prismFace.getArea(prismFace.length, prismFace.sides)*height;
         }
     }
+    //Method returns the surface area of a prism with different face types
     public double getSurfaceArea(){
         double otherFaces = 0;
         //Calculating other faces
@@ -62,10 +64,14 @@ public class Prism {
         }
     }
 }
+//Declare class pyramid
 class Pyramid extends Prism{
+    //Same properties as prism so no need to override constructor
+    //Method returns the volume of a pyramid. Practically the same as for a prism except divide by 3
     public double getVolume(){
         return super.getVolume()/3;
     }
+    //Method returns the surface area of a pyramid given different face values
     public double getSurfaceArea(){
         double otherFaces = 0;
         //Calculating other faces

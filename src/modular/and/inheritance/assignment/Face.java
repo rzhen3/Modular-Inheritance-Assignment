@@ -21,6 +21,7 @@ public class Face {
     public static void printLB(){
         System.out.println("-------------------------------------------------------------------------------------------");
     }
+    //Constructor that sets the values for faces including the sides, base and height
     public Face(){
         
         sides = -1;
@@ -127,9 +128,9 @@ public class Face {
     //getting area for other shapes
     public double getArea(double uLength, int sides){
         switch(sides){
-            case 0:
-                return uLength*uLength*Math.PI;
-            
+//            case 0:
+//                return uLength*uLength*Math.PI;
+//            
             case 5:
                 return 0.25*Math.sqrt(5*(5+2*Math.sqrt(5)))*uLength*uLength;
             case 6:
