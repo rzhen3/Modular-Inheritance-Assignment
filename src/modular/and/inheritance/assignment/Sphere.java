@@ -14,9 +14,11 @@ import static modular.and.inheritance.assignment.Prism.scan;
  */
 public class Sphere {
     public double radius;
+    //Line break
     public static void printLB(){
         System.out.println("-------------------------------------------------------------------------------------------");
     }
+    //Initialize the sphere's properties
     public Sphere(){
         //get radius
         do{
@@ -34,25 +36,34 @@ public class Sphere {
             }
         }while(true);
     }
+    //Method that returns the volume of a sphere
     public double getVolume(){
         return radius*radius*radius*Math.PI*4/3;
     }
+    //Method that returns the surface area of a sphere
     public double getSurfaceArea(){
         return 4*radius*radius*Math.PI;
     }
         
 }
+//Declare class for cylinder
 class Cone extends Cylinder{
+    //same variables as cylinder so no need for new constructor
+    //Method that returns the volume for specifically, a cylinder
     public double getVolume(){
         return super.getVolume()/3;
     }
+    //Method that returns the surface area of a cylinder
     public double getSurfaceArea(){
         return Math.PI*radius*(radius+Math.sqrt(height*height+radius*radius));
     }
         
 }
+//Declare class for sphere
 class Cylinder extends Sphere{
     public double height;
+    //Method that gets the  properties of cylinder
+    //Same thing sphere so calls the sphere constructor. Added input for height value
     public Cylinder(){
         super();
         do{
@@ -70,15 +81,20 @@ class Cylinder extends Sphere{
             }
         }while(true);
     }
+    //Method that returns specfically the volume for a cylinder
     public double getVolume(){
         return Math.PI*radius*radius*height;
     }
+    //Method that returns specifically the surface area of a cylinder
     public double getSurfaceArea(){
         return 2*Math.PI*radius*radius + 2*Math.PI*radius*height;
     }
 }
+//Declare class for sphere
 class Torus extends Sphere{
     public double secondR;
+    //Method that sets the torus properties
+    //Same thing as sphere but with a second radius
     public Torus(){
         super();
         do{
@@ -96,9 +112,11 @@ class Torus extends Sphere{
             }
         }while(true);
     }
+    //Method that returns the volume of a torus
     public double getVolume(){
         return 2*Math.PI*Math.PI*secondR*radius;
     }
+    //Method that returns the surface area of a torus
     public double getSurfaceArea(){
         return 2*Math.PI*radius * 2*Math.PI*secondR;
     }

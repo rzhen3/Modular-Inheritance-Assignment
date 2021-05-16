@@ -28,9 +28,11 @@ public class mainProgram{
        runProgram();
        System.out.println("Good bye!");
     }
+    //Line break method
     private static void printLB(){
         System.out.println("-------------------------------------------------------------------------------------------");
     }
+    //Method that gets user shape (may be removed)
     public static String getUserShape(){
 //        String[] validSelections = {"Prism", "Pyramid", "Sphere", "Cone", "Cylinder", "Torus"};
         System.out.println("List of possible shapes: \n"
@@ -56,6 +58,7 @@ public class mainProgram{
         
          return scan.next().replaceAll(" ","");
     }
+    //Main run program method
     public static void runProgram(){
         do{
             System.out.println(instructions);
@@ -88,6 +91,11 @@ public class mainProgram{
         }while(continuePlaying == true);
         
     }
+    
+    
+    //Creating a program that executes actions for each shape
+    
+    //Overload for prism
     public static void doActions(Prism uPrism){
         String userInput="";
         do{
@@ -104,6 +112,126 @@ public class mainProgram{
                 System.out.println("Volume: "+uPrism.getVolume());
             else if(userInput.equalsIgnoreCase("change"))
                 uPrism = new Prism();
+            else if(userInput.equalsIgnoreCase("finished"))
+                break;
+            else{
+                System.out.println("Command misunderstood. Try again");
+            }
+        }while(true);
+    }
+    //OVerload for pyramid
+    public static void doActions(Pyramid uPyramid){
+        String userInput="";
+        do{
+            System.out.println("To get surface area, type \'surface area\'\n"
+                    + "To get volume, type \'volume\'\n"
+                    + "To change specifications, type \'change\'\n"
+                    + "When finished, type \'finished\'\n"
+                    + "Enter below:");
+            userInput = scan.nextLine();
+            printLB();
+            if(userInput.equalsIgnoreCase("surface area"))
+                System.out.println("Surface Area: "+uPyramid.getSurfaceArea());
+            else if(userInput.equalsIgnoreCase("volume"))
+                System.out.println("Volume: "+uPyramid.getVolume());
+            else if(userInput.equalsIgnoreCase("change"))
+                uPyramid = new Pyramid();
+            else if(userInput.equalsIgnoreCase("finished"))
+                break;
+            else{
+                System.out.println("Command misunderstood. Try again");
+            }
+        }while(true);
+    }
+    //Overload for sphere
+    public static void doActions(Sphere uSphere){
+        String userInput="";
+        do{
+            System.out.println("To get surface area, type \'surface area\'\n"
+                    + "To get volume, type \'volume\'\n"
+                    + "To change specifications, type \'change\'\n"
+                    + "When finished, type \'finished\'\n"
+                    + "Enter below:");
+            userInput = scan.nextLine();
+            printLB();
+            if(userInput.equalsIgnoreCase("surface area"))
+                System.out.println("Surface Area: "+uSphere.getSurfaceArea());
+            else if(userInput.equalsIgnoreCase("volume"))
+                System.out.println("Volume: "+uSphere.getVolume());
+            else if(userInput.equalsIgnoreCase("change"))
+                uSphere = new Sphere();
+            else if(userInput.equalsIgnoreCase("finished"))
+                break;
+            else{
+                System.out.println("Command misunderstood. Try again");
+            }
+        }while(true);
+    }
+    //Overload for cone
+    public static void doActions(Cone uCone){
+        String userInput="";
+        do{
+            System.out.println("To get surface area, type \'surface area\'\n"
+                    + "To get volume, type \'volume\'\n"
+                    + "To change specifications, type \'change\'\n"
+                    + "When finished, type \'finished\'\n"
+                    + "Enter below:");
+            userInput = scan.nextLine();
+            printLB();
+            if(userInput.equalsIgnoreCase("surface area"))
+                System.out.println("Surface Area: "+uCone.getSurfaceArea());
+            else if(userInput.equalsIgnoreCase("volume"))
+                System.out.println("Volume: "+uCone.getVolume());
+            else if(userInput.equalsIgnoreCase("change"))
+                uCone = new Cone();
+            else if(userInput.equalsIgnoreCase("finished"))
+                break;
+            else{
+                System.out.println("Command misunderstood. Try again");
+            }
+        }while(true);
+    }
+    //Overload for cylinder
+    public static void doActions(Cylinder uCylinder){
+        String userInput="";
+        do{
+            System.out.println("To get surface area, type \'surface area\'\n"
+                    + "To get volume, type \'volume\'\n"
+                    + "To change specifications, type \'change\'\n"
+                    + "When finished, type \'finished\'\n"
+                    + "Enter below:");
+            userInput = scan.nextLine();
+            printLB();
+            if(userInput.equalsIgnoreCase("surface area"))
+                System.out.println("Surface Area: "+uCylinder.getSurfaceArea());
+            else if(userInput.equalsIgnoreCase("volume"))
+                System.out.println("Volume: "+uCylinder.getVolume());
+            else if(userInput.equalsIgnoreCase("change"))
+                uCylinder = new Cylinder();
+            else if(userInput.equalsIgnoreCase("finished"))
+                break;
+            else{
+                System.out.println("Command misunderstood. Try again");
+            }
+        }while(true);
+    }
+    //Overload for torus
+    public static void doActions(Torus uTorus){
+        String userInput="";
+        do{
+            System.out.println("To get surface area, type \'surface area\'\n"
+                    + "To get volume, type \'volume\'\n"
+                    + "To change specifications, type \'change\'\n"
+                    + "When finished, type \'finished\'\n"
+                    + "Enter below:");
+            userInput = scan.nextLine();
+            printLB();
+            if(userInput.equalsIgnoreCase("surface area"))
+                System.out.println("Surface Area: "+uTorus.getSurfaceArea());
+            else if(userInput.equalsIgnoreCase("volume"))
+                System.out.println("Volume: "+uTorus.getVolume());
+            else if(userInput.equalsIgnoreCase("change"))
+                uTorus = new Torus();
             else if(userInput.equalsIgnoreCase("finished"))
                 break;
             else{
