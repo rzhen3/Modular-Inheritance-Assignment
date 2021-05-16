@@ -64,6 +64,7 @@ public class mainProgram{
             System.out.println(instructions);
             String userInput = getUserShape();
             printLB();
+            //Determining what shape to create
             switch(userInput){
                 case "prism":
                     doActions(new Prism());
@@ -106,6 +107,7 @@ public class mainProgram{
                     + "Enter below:");
             userInput = scan.nextLine();
             printLB();
+            //Different options
             if(userInput.equalsIgnoreCase("surface area"))
                 System.out.println("Surface Area: "+uPrism.getSurfaceArea());
             else if(userInput.equalsIgnoreCase("volume"))

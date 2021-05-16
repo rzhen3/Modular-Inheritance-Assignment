@@ -21,6 +21,7 @@ public class Sphere{
     //Initialize the sphere's properties
     public Sphere(){
         //get radius
+        radius = -1;
         do{
             try{
                 System.out.println("Enter a valid radius:");
@@ -36,7 +37,7 @@ public class Sphere{
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(true);
+        }while(radius<0);
     }
     //Method that returns the volume of a sphere
     public double getVolume(){
@@ -76,14 +77,12 @@ class Cylinder extends Sphere{
                 printLB();
                 if(height<0)
                     System.out.println("Negative value. Try again");
-                else
-                    break;
             }
             catch(NumberFormatException e){
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(true);
+        }while(height<0);
     }
     //Method that returns specfically the volume for a cylinder
     public double getVolume(){
@@ -109,14 +108,12 @@ class Torus extends Sphere{
                 printLB();
                 if(secondR<0||secondR<radius)
                     System.out.println("Improper value. Try again");
-                else
-                    break;
             }
             catch(NumberFormatException e){
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(true);
+        }while(secondR<0||secondR<radius);
     }
     //Method that returns the volume of a torus
     public double getVolume(){

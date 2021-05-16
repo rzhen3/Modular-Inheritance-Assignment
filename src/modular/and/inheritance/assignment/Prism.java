@@ -32,14 +32,12 @@ public class Prism{
                 printLB();
                 if(height<0)
                     System.out.println("Negative value. Try again");
-                else
-                    break;
             }
             catch(NumberFormatException e){
                 printLB();
                 System.out.println("Not a number. Try again.");
             }
-        }while(true);
+        }while(height<0);
     }
     //Method returns the volume of a prism with different face types
     public double getVolume(){

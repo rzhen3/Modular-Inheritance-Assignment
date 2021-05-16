@@ -61,12 +61,13 @@ public class Face {
             do{
                 try{
                     for(int i = 0;i<sideList.length;i++){
-                        System.out.println("Enter one side length:");
+                        System.out.println("Enter one of the  base face's side length:");
                         String uIn = scan.nextLine();
                         double uInput = Double.parseDouble(uIn);
                         printLB();
                         if(uInput<=0){
                             System.out.println("Invalid input. Try again");
+                            i--;
                         }
                         else{
                             sideList[i] = uInput;
@@ -84,13 +85,13 @@ public class Face {
             try{
                 if(within){
                     if(length<0){
-                        System.out.println("Enter a valid length:");
+                        System.out.println("Enter a valid length for the base:");
                         String uInput = scan.nextLine();
                         length = Double.parseDouble(uInput);
                         printLB();
                     }
                     if(width<0){
-                        System.out.println("Enter a valid width:");
+                        System.out.println("Enter a valid width for the base:");
                         String uInput = scan.nextLine();
                         width = Double.parseDouble(uInput);
                         printLB();
