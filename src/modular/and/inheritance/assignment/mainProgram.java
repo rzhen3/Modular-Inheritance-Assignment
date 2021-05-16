@@ -15,7 +15,7 @@ public class mainProgram{
     static boolean continuePlaying = true;
     static Scanner scan = new Scanner(System.in);
     final static String instructions = "\t\t\tVolume and Surface Area Calculator:\n"
-                + "-------------------------------------------------------------\n"
+                + "-------------------------------------------------------------------------------------------\n"
                 + "This is a volume and surface area calculator for basic shapes.\n"
                 + "You will input the shape for which you desire the volume and surface area.\n"
                 + "Next, you can input the relevant specifications of the face you want.\n"

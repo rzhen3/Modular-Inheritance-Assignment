@@ -18,7 +18,7 @@ public class Face {
     double width;
     int sides;
     public double[] sideList;
-    public static void printLB(){
+    private static void printLB(){
         System.out.println("-------------------------------------------------------------------------------------------");
     }
     //Constructor that sets the values for faces including the sides, base and height
