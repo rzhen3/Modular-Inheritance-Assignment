@@ -35,12 +35,12 @@ public class Sphere{
         }while(radius<0);//repeats as long as radius is invalid
     }
     //Method that returns the volume of a sphere
-    public double getVolume(){
-        return radius*radius*radius*Math.PI*4/3;
+    public double getVolume(double uRad){
+        return uRad*uRad*uRad*Math.PI*4/3;
     }
     //Method that returns the surface area of a sphere
-    public double getSurfaceArea(){
-        return 4*radius*radius*Math.PI;
+    public double getSurfaceArea(double uRad){
+        return 4*uRad*uRad*Math.PI;
     }
         
 }
@@ -48,12 +48,12 @@ public class Sphere{
 class Cone extends Cylinder{
     //same variables as cylinder so no need for new constructor
     //Method that returns the volume for specifically, a cylinder
-    public double getVolume(){
-        return super.getVolume()/3;
+    public double getVolume(double uRad, double uHeight){
+        return super.getVolume(uRad, uHeight)/3;
     }
     //Method that returns the surface area of a cylinder
-    public double getSurfaceArea(){
-        return Math.PI*radius*(radius+Math.sqrt(height*height+radius*radius));
+    public double getSurfaceArea(double uRad, double uHeight){
+        return Math.PI*uRad*(uRad+Math.sqrt(uHeight*uHeight+uRad*uRad));
     }
         
 }
@@ -82,12 +82,12 @@ class Cylinder extends Sphere{
         }while(height<0);//repeats as long as height is invalid
     }
     //Method that returns specfically the volume for a cylinder
-    public double getVolume(){
-        return Math.PI*radius*radius*height;
+    public double getVolume(double uRad, double uHeight){
+        return Math.PI*uRad*uRad*uHeight;
     }
     //Method that returns specifically the surface area of a cylinder
-    public double getSurfaceArea(){
-        return 2*Math.PI*radius*radius + 2*Math.PI*radius*height;
+    public double getSurfaceArea(double uRad, double uHeight){
+        return 2*Math.PI*uRad*uRad + 2*Math.PI*uRad*uHeight;
     }
 }
 //Declare class for sphere
@@ -115,12 +115,12 @@ class Torus extends Sphere{
         }while(secondR<0||secondR<radius); //repeats as long as secondR is invalid
     }
     //Method that returns the volume of a torus
-    public double getVolume(){
-        return 2*Math.PI*Math.PI*secondR*radius*radius;
+    public double getVolume(double uRad, double uSecRad){
+        return 2*Math.PI*Math.PI*uSecRad*uRad*uRad;
     }
     //Method that returns the surface area of a torus
-    public double getSurfaceArea(){
-        return 2*Math.PI*radius * 2*Math.PI*secondR;
+    public double getSurfaceArea(double uRad, double uSecRad){
+        return 2*Math.PI*uRad * 2*Math.PI*uSecRad;
     }
     
 }
