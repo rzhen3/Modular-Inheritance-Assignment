@@ -92,9 +92,9 @@ public class mainProgram{
             printLB();
             //Different options
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println("Surface Area: "+uPrism.getSurfaceArea());
+                System.out.println("Surface Area: "+uPrism.getSurfaceArea(uPrism.prismFace, uPrism.height));
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println("Volume: "+uPrism.getVolume());
+                System.out.println("Volume: "+uPrism.getVolume(uPrism.prismFace, uPrism.height));
             else if(userInput.equalsIgnoreCase("change"))
                 uPrism = new Prism();
             else if(userInput.equalsIgnoreCase("finished"))
@@ -117,9 +117,9 @@ public class mainProgram{
             userInput = scan.nextLine();
             printLB();
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println("Surface Area: "+uPyramid.getSurfaceArea());
+                System.out.println("Surface Area: "+uPyramid.getSurfaceArea(uPyramid.prismFace, uPyramid.height));
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println("Volume: "+uPyramid.getVolume());
+                System.out.println("Volume: "+uPyramid.getVolume(uPyramid.prismFace, uPyramid.height));
             else if(userInput.equalsIgnoreCase("change"))
                 uPyramid = new Pyramid();
             else if(userInput.equalsIgnoreCase("finished"))
@@ -142,9 +142,9 @@ public class mainProgram{
             userInput = scan.nextLine();
             printLB();
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println("Surface Area: "+uSphere.getSurfaceArea());
+                System.out.println("Surface Area: "+uSphere.getSurfaceArea(uSphere.radius));
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println("Volume: "+uSphere.getVolume());
+                System.out.println("Volume: "+uSphere.getVolume(uSphere.radius));
             else if(userInput.equalsIgnoreCase("change"))
                 uSphere = new Sphere();
             else if(userInput.equalsIgnoreCase("finished"))
@@ -167,9 +167,9 @@ public class mainProgram{
             userInput = scan.nextLine();
             printLB();
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println("Surface Area: "+uCone.getSurfaceArea());
+                System.out.println("Surface Area: "+uCone.getSurfaceArea(uCone.radius, uCone.height));
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println("Volume: "+uCone.getVolume());
+                System.out.println("Volume: "+uCone.getVolume(uCone.radius, uCone.height));
             else if(userInput.equalsIgnoreCase("change"))
                 uCone = new Cone();
             else if(userInput.equalsIgnoreCase("finished"))
@@ -192,9 +192,9 @@ public class mainProgram{
             userInput = scan.nextLine();
             printLB();
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println("Surface Area: "+uCylinder.getSurfaceArea());
+                System.out.println("Surface Area: "+uCylinder.getSurfaceArea(uCylinder.radius, uCylinder.height));
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println("Volume: "+uCylinder.getVolume());
+                System.out.println("Volume: "+uCylinder.getVolume(uCylinder.radius, uCylinder.height));
             else if(userInput.equalsIgnoreCase("change"))
                 uCylinder = new Cylinder();
             else if(userInput.equalsIgnoreCase("finished"))
@@ -217,9 +217,9 @@ public class mainProgram{
             userInput = scan.nextLine();
             printLB();
             if(userInput.equalsIgnoreCase("surface area"))
-                System.out.println("Surface Area: "+uTorus.getSurfaceArea());
+                System.out.println("Surface Area: "+uTorus.getSurfaceArea(uTorus.radius, uTorus.secondR));
             else if(userInput.equalsIgnoreCase("volume"))
-                System.out.println("Volume: "+uTorus.getVolume());
+                System.out.println("Volume: "+uTorus.getVolume(uTorus.radius, uTorus.secondR));
             else if(userInput.equalsIgnoreCase("change"))
                 uTorus = new Torus();
             else if(userInput.equalsIgnoreCase("finished"))

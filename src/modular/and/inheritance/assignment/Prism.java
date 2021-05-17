@@ -37,26 +37,26 @@ public class Prism{
         }while(height<0);//while height is invalid
     }
     //Method returns the volume of a prism with different face types
-    public double getVolume(){
-        if(prismFace.sides>=3 && prismFace.sides<=4)
-            return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*height;
+    public double getVolume(Face uFace, double uHeight){
+        if(uFace.sides>=3 && uFace.sides<=4)
+            return uFace.getArea(uFace.length, uFace.width,uFace.sides)*uHeight;
         else
-            return prismFace.getArea(prismFace.length, prismFace.sides)*height;
+            return uFace.getArea(uFace.length, uFace.sides)*uHeight;
         
     }
     //Method returns the surface area of a prism with different face types
-    public double getSurfaceArea(){
+    public double getSurfaceArea(Face uFace, double uHeight){
         double otherFaces = 0;
         //Calculating other faces
-        for(double i:prismFace.sideList){
-            otherFaces=otherFaces+(i*height);
+        for(double i:uFace.sideList){
+            otherFaces=otherFaces+(i*uHeight);
         }
         //calculating the final surface area
-        if(prismFace.sides>=3 && prismFace.sides<=4)
-            return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)*2+ otherFaces;
+        if(uFace.sides>=3 && uFace.sides<=4)
+            return uFace.getArea(uFace.length, uFace.width,uFace.sides)*2+ otherFaces;
         
         else
-            return prismFace.getArea(prismFace.length, prismFace.sides)*2+otherFaces;
+            return uFace.getArea(uFace.length, uFace.sides)*2+otherFaces;
         
     }
 }
@@ -64,22 +64,22 @@ public class Prism{
 class Pyramid extends Prism{
     //Same properties as prism so no need to override constructor
     //Method returns the volume of a pyramid. Practically the same as for a prism except divide by 3
-    public double getVolume(){
-        return super.getVolume()/3;
+    public double getVolume(Face uFace, double uHeight){
+        return super.getVolume(uFace, uHeight)/3;
     }
     //Method returns the surface area of a pyramid given different face values
-    public double getSurfaceArea(){
+    public double getSurfaceArea(Face uFace, double uHeight){
         double otherFaces = 0;
         //Calculating other faces
-        for(double i:prismFace.sideList){
-            otherFaces=otherFaces+(i*height/2);
+        for(double i:uFace.sideList){
+            otherFaces=otherFaces+(i*uHeight/2);
         }
         //calculating final surface area
-        if(prismFace.sides>=3 && prismFace.sides<=4)
-            return prismFace.getArea(prismFace.length, prismFace.width,prismFace.sides)+otherFaces;
+        if(uFace.sides>=3 && uFace.sides<=4)
+            return uFace.getArea(uFace.length, uFace.width,uFace.sides)+otherFaces;
         
         else
-            return prismFace.getArea(prismFace.length, prismFace.sides)+otherFaces;
+            return uFace.getArea(uFace.length, uFace.sides)+otherFaces;
         
     }
 }
