@@ -125,9 +125,9 @@ public class Face {
     public double getArea(double uLength, double uWidth, int sides){
         switch(sides){
             case 3:
-                return length*width/2;
+                return uLength*uWidth/2;
             case 4:
-                return length*width;
+                return uLength*uWidth;
         }
         return -1;
     }
